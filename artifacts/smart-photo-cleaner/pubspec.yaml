@@ -24,7 +24,7 @@ dependencies:
   permission_handler: ^11.3.1
 
   # ML Kit — Face Detection
-  google_mlkit_face_detection: ^0.11.0
+  google_mlkit_face_detection: ^0.12.0
 
   # ML Kit — Image Labeling
   google_mlkit_image_labeling: ^0.13.0
