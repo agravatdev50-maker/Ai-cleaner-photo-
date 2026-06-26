@@ -1,6 +1,6 @@
 plugins {
     id "com.android.application"
-    id "kotlin-android"
+    id "org.jetbrains.kotlin.android"
     id "dev.flutter.flutter-gradle-plugin"
 }
 
@@ -20,7 +20,7 @@ android {
 
     defaultConfig {
         applicationId "com.smartphotocleaner"
-        minSdk 29  // Android 10
+        minSdk 29
         targetSdk flutter.targetSdkVersion
         versionCode flutter.versionCode
         versionName flutter.versionName
@@ -35,7 +35,6 @@ android {
         }
     }
 
-    // Required for ML Kit
     aaptOptions {
         noCompress "tflite"
     }
@@ -46,8 +45,7 @@ flutter {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    // ML Kit bundled models
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.22"
     implementation "com.google.mlkit:face-detection:16.1.5"
     implementation "com.google.mlkit:image-labeling:17.0.8"
 }
