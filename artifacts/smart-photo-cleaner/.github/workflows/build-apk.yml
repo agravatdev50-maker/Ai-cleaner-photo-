@@ -3,7 +3,10 @@ name: Build APK
 on:
   push:
     branches: [ main, master ]
-  workflow_dispatch:   # lets you trigger the build manually from GitHub UI
+  workflow_dispatch:
+
+permissions:
+  contents: write   # needed to create a GitHub Release
 
 jobs:
   build:
@@ -32,9 +35,19 @@ jobs:
       - name: Build debug APK
         run: flutter build apk --debug
 
-      - name: Upload APK artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: SmartPhotoCleaner-debug
-          path: build/app/outputs/flutter-apk/app-debug.apk
-          retention-days: 30
+      - name: Rename APK
+        run: cp build/app/outputs/flutter-apk/app-debug.apk SmartPhotoCleaner.apk
+
+      - name: Delete old release (if exists)
+        run: gh release delete latest-build --yes || true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create GitHub Release with APK
+        run: |
+          gh release create latest-build SmartPhotoCleaner.apk \
+            --title "Smart Photo Cleaner — Latest Build" \
+            --notes "Automatically built from the latest commit. Download SmartPhotoCleaner.apk below." \
+            --latest
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
