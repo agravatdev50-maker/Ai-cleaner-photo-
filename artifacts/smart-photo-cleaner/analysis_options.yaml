@@ -1,0 +1,22 @@
+include: package:flutter_lints/flutter.yaml
+
+linter:
+  rules:
+    # Code quality
+    prefer_const_constructors: true
+    prefer_const_declarations: true
+    prefer_final_locals: true
+    avoid_print: true
+    use_super_parameters: true
+    unnecessary_this: true
+
+    # Style
+    require_trailing_commas: true
+
+analyzer:
+  errors:
+    invalid_annotation_target: ignore  # for freezed
+
+  exclude:
+    - lib/data/models/**/*.g.dart
+    - lib/data/models/**/*.freezed.dart

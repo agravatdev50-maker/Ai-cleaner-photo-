@@ -1,0 +1,1 @@
+- [Flutter project in pnpm workspace](flutter-in-pnpm-workspace.md) — Flutter projects live as standalone dirs outside artifact system; no createArtifact, no workflow needed.

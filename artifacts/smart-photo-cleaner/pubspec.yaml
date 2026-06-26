@@ -1,0 +1,75 @@
+name: smart_photo_cleaner
+description: AI-powered photo management app to detect duplicates, analyze quality, and free up storage.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State management
+  flutter_riverpod: ^2.5.1
+  riverpod_annotation: ^2.3.5
+
+  # Navigation
+  go_router: ^14.2.0
+
+  # Photo access (MediaStore API)
+  photo_manager: ^3.4.2
+
+  # Permissions
+  permission_handler: ^11.3.1
+
+  # ML Kit — Face Detection
+  google_mlkit_face_detection: ^0.11.0
+
+  # ML Kit — Image Labeling
+  google_mlkit_image_labeling: ^0.13.0
+
+  # Image processing (perceptual hashing, blur detection, etc.)
+  image: ^4.2.0
+
+  # Hashing
+  crypto: ^3.0.3
+
+  # Storage / prefs
+  shared_preferences: ^2.3.1
+  path_provider: ^2.1.3
+
+  # UI / UX
+  photo_view: ^0.15.0
+  flutter_animate: ^4.5.0
+  shimmer: ^3.0.0
+  cached_network_image: ^3.3.1
+  flutter_staggered_grid_view: ^0.7.0
+  percent_indicator: ^4.2.3
+  intl: ^0.19.0
+  url_launcher: ^6.3.0
+  lottie: ^3.1.2
+  badges: ^3.1.2
+  package_info_plus: ^8.0.0
+
+  # Data models
+  freezed_annotation: ^2.4.1
+  json_annotation: ^4.9.0
+
+  # Icons
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+  freezed: ^2.5.2
+  json_serializable: ^6.8.0
+  build_runner: ^2.4.11
+  riverpod_generator: ^2.4.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/icons/
+    - assets/images/
